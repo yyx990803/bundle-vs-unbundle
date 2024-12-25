@@ -37,5 +37,3 @@ document.body.appendChild(app);
 };
 
 generate("esm", "js", (i) => `./${i}.js`);
-// generate("js", "js", (i) => `./${i}`);
-// generate("ts", "ts", (i) => `./${i}`);
