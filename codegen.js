@@ -30,7 +30,7 @@ const generate = (dir, ext, nextImp) => {
     `
 const app = document.createElement("div");
 app.id = "app";
-app.textContent = (performance.now() - window.start).toFixed(2);
+app.textContent = 'Loaded in ' + (performance.now() - window.start).toFixed(2) + 'ms';
 document.body.appendChild(app);
 `,
   );
