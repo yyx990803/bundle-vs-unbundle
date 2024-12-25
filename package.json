@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
-    "build": "node codegen.js && esbuild src/esm/1.js --bundle --outfile=src/esm/bundled.js"
+    "build": "node codegen.js",
+    "postbuild": "esbuild src/esm/1.js --bundle --outfile=src/esm/bundled.js"
   },
   "prettier": {
     "trailingComma": "all"

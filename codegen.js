@@ -3,7 +3,8 @@ import { writeFileSync, mkdirSync, rmSync } from "fs";
 rmSync("src", { recursive: true, force: true });
 mkdirSync("./src");
 
-const TOTAL = 5_000;
+const arg = process.argv[2];
+const TOTAL = arg ? Number(arg) : 5_000;
 const DEPTH = 5;
 const WIDTH = Math.round(TOTAL / DEPTH);
 
