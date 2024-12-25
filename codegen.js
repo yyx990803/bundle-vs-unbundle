@@ -14,10 +14,13 @@ const generate = (dir, ext, nextImp) => {
     for (let j = 1; j < WIDTH + 1; j++) {
       const childFile = nextImp(`${i}_${j}`);
       code += `\nimport "${childFile}"`;
-      writeFileSync(
-        `src/${dir}${childFile.slice(1)}`,
-        `window.foo = (${i},${j})`,
-      );
+      let childCode = "";
+      // filler code
+      for (let k = 0; k < 10; k++) {
+        childCode += `\nfunction foo${k}() { window.side = ${k} }`;
+        childCode += `\nfoo${k}()`;
+      }
+      writeFileSync(`src/${dir}${childFile.slice(1)}`, childCode);
     }
     code += `\nimport "${nextImp(i + 1)}"`;
     writeFileSync(`src/${dir}/${i}.${ext}`, code);
